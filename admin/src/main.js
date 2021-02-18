@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import http from './http/http'
+//讓所有admin都可以直接調用axios請求
+Vue.prototype.$http = http
 
 Vue.use(ElementUI)
 

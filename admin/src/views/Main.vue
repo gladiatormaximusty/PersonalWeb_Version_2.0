@@ -1,51 +1,36 @@
 <template>
     <el-container style="height: 100vh; border: 1px solid #eee">
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu :default-openeds="['1', '3']">
+    <el-menu router>
       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-message"></i>导航一</template>
+        <template slot="title"><i class="el-icon-s-data"></i>流量分析</template>
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+       
+          <el-menu-item index="1-1">流量來源</el-menu-item>
+          <el-menu-item index="1-2">數據分析</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-        </el-submenu>
       </el-submenu>
       <el-submenu index="2">
-        <template slot="title"><i class="el-icon-menu"></i>导航二</template>
+        <template slot="title"><i class="el-icon-s-management"></i>內容管理</template>
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
+      
+          <el-menu-item index="/categories/create">新增分類</el-menu-item>
+          <el-menu-item index="/categories/list">分類列表</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-        </el-submenu>
       </el-submenu>
       <el-submenu index="3">
-        <template slot="title"><i class="el-icon-setting"></i>导航三</template>
+        <template slot="title"><i class="el-icon-s-management"></i>頁面設定</template>
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="3-1">选项1</el-menu-item>
-          <el-menu-item index="3-2">选项2</el-menu-item>
+          <el-menu-item index="1-1">首頁設定</el-menu-item>
+          <el-menu-item index="1-2">部落格設定</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="3-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-submenu index="4">
+        <template slot="title"><i class="el-icon-s-tools"></i>權限管理</template>
+        <el-menu-item-group>
+          <el-menu-item index="1-1">新增使用者</el-menu-item>
+          <el-menu-item index="1-2">使用者列表</el-menu-item>
         </el-menu-item-group>
-        <el-submenu index="3-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-        </el-submenu>
       </el-submenu>
     </el-menu>
   </el-aside>
@@ -60,18 +45,12 @@
           <el-dropdown-item>删除</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <span>王小虎</span>
+      <span>EdwardXiong</span>
     </el-header>
     
     <el-main>
-      <el-table :data="tableData">
-        <el-table-column prop="date" label="日期" width="140">
-        </el-table-column>
-        <el-table-column prop="name" label="姓名" width="120">
-        </el-table-column>
-        <el-table-column prop="address" label="地址">
-        </el-table-column>
-      </el-table>
+        <router-view></router-view>
+     
     </el-main>
   </el-container>
 </el-container>
