@@ -22,9 +22,14 @@ export default {
         }
     },
     methods:{
-        save(){
+        async save(){
             //請求接口
-            this.$http.post()
+            await this.$http.post('/categories',this.model)
+            this.$router.push('/categories/list')
+            this.$message({
+                type:'success',
+                message:'新增成功'
+            })
         }
     }
 }
