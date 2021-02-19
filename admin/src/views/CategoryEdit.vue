@@ -37,9 +37,9 @@ export default {
     async save() {
       //請求接口判斷：
       if (this.id) {
-        await this.$http.put(`/categories/${this.id}`, this.model);
+        await this.$http.put(`/rest/categories/${this.id}`, this.model);
       } else {
-        await this.$http.post("/categories", this.model);
+        await this.$http.post("/rest/categories", this.model);
       }
       this.$router.push("/categories/list");
       this.$message({
@@ -48,12 +48,12 @@ export default {
       });
     },
     async fetchData() {
-      const res = await this.$http.get(`/categories/${this.id}`);
+      const res = await this.$http.get(`/rest/categories/${this.id}`);
       this.model = res.data;
       console.log(res);
     },
     async fetchParents() {
-      const res = await this.$http.get("/categories");
+      const res = await this.$http.get("/rest/categories");
       this.parents = res.data;
     },
   },

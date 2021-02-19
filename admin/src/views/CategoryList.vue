@@ -8,7 +8,7 @@
         <el-button
           size="mini"
           type="primary"
-          @click="$router.push(`/categories/edit/${scope.row._id}`)"
+          @click="$router.push(`/rest/categories/edit/${scope.row._id}`)"
           >编辑</el-button
         >
         <el-button size="mini" type="danger" @click="remove(scope.row)"
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      const res = await this.$http.get("/categories");
+      const res = await this.$http.get("/rest/categories");
       this.items = res.data;
       console.log(this.items);
     },
@@ -38,7 +38,7 @@ export default {
         cancelVuttonText: "取消",
         type: "warning",
       }).then(async () => {
-        await this.$http.delete(`/categories/${row._id}`);
+        await this.$http.delete(`/rest/categories/${row._id}`);
         this.$message({
           type: "success",
           message: "刪除成功",
