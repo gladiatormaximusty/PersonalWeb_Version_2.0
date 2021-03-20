@@ -1,7 +1,7 @@
 <template>
     <el-container style="height: 100vh; border: 1px solid #eee">
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu router>
+    <el-menu router :default-openeds="['1','2','3','4']">
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-s-data"></i>流量分析</template>
         <el-menu-item-group>
@@ -13,19 +13,25 @@
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-s-management"></i>內容管理</template>
         <el-menu-item-group>
-      
           <el-menu-item index="/categories/create">新增分類</el-menu-item>
           <el-menu-item index="/categories/list">分類列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">
-        <template slot="title"><i class="el-icon-s-management"></i>頁面設定</template>
+        <template slot="title"><i class="el-icon-s-management"></i>文章管理</template>
         <el-menu-item-group>
-          <el-menu-item index="1-1">首頁設定</el-menu-item>
-          <el-menu-item index="1-2">部落格設定</el-menu-item>
+          <el-menu-item index="/articles/create">新增文章</el-menu-item>
+          <el-menu-item index="/articles/list">文章列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="4">
+        <template slot="title"><i class="el-icon-s-management"></i>頁面設定</template>
+        <el-menu-item-group>
+          <el-menu-item index="/pictures/create">圖片設定</el-menu-item>
+          <el-menu-item index="/pictures/list">圖片列表</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+      <el-submenu index="5">
         <template slot="title"><i class="el-icon-s-tools"></i>權限管理</template>
         <el-menu-item-group>
           <el-menu-item index="1-1">新增使用者</el-menu-item>

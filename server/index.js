@@ -4,6 +4,10 @@ const app = express()
 app.use(require('cors')())
 //允許後端接受 JSON 格式
 app.use(express.json())
+
+//靜態資源託管
+app.use('/uploads',express.static(__dirname + '/uploads'));
+
 //連接 Router 模塊
 require('./routes/admin/index')(app)
 //連接 Mongodb
