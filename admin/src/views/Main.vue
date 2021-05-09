@@ -42,8 +42,8 @@
       <el-submenu index="6">
         <template slot="title"><i class="el-icon-s-tools"></i>權限管理</template>
         <el-menu-item-group>
-          <el-menu-item index="1-1">新增使用者</el-menu-item>
-          <el-menu-item index="1-2">使用者列表</el-menu-item>
+          <el-menu-item index="/admin_users/create">新增使用者</el-menu-item>
+          <el-menu-item index="/admin_users/list">使用者列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
