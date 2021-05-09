@@ -49,4 +49,29 @@ module.exports = app => {
         file.url = `http://localhost:3000/uploads/${file.filename}`
         res.send(file);
     })
+
+    //登入接口：
+    app.post('/admin/api/login',async(req,res)=>{
+       const {username, password} = req.body
+       // 1.根據使用者名稱找到 DB 用戶名稱：
+       const AdminUser = require('../../models/AdminUser');
+       const user = await AdminUser.findOne({username}).select('+password');
+       if(!user){
+           return res.status(487).send({
+               message:'用戶不存在'
+           })
+       }
+       //2.校驗密碼：
+       const isValid = require('bcrypt').compareSync(password,user.password)
+       if(!isValid){
+           return res.status(487).send({
+               message:'密碼錯誤'
+           })
+       }
+       //3.返回 token：
+       const jwt = require('jsonwebtoken');
+       //jwt sign 生成 token  ps.第二個參數為密鑰，給客戶端使用（這邊簡單使用） jwt sign 對應 jwt varified                      
+       const token = jwt.sign({id:user._id},app.get('secret'))
+       res.send({token})
+    })
 }

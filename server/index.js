@@ -1,5 +1,10 @@
 const express = require('express')
 const app = express()
+
+//給密鑰全局加上屬性：
+app.set('secret','之後定義值')
+
+
 //後端允許跨域(跨域要寫在上方喔！)：
 app.use(require('cors')())
 //允許後端接受 JSON 格式
