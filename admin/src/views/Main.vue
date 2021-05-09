@@ -1,7 +1,8 @@
 <template>
     <el-container style="height: 100vh; border: 1px solid #eee">
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu router :default-openeds="['1','2','3','4']">
+    <!-- <el-menu router :default-openeds="['1','2','3','4']"> -->
+    <el-menu router :default-active="$route.path">
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-s-data"></i>流量分析</template>
         <el-menu-item-group>
@@ -32,6 +33,13 @@
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="5">
+        <template slot="title"><i class="el-icon-s-management"></i>廣告設定</template>
+        <el-menu-item-group>
+          <el-menu-item index="/Ads/create">廣告新增</el-menu-item>
+          <el-menu-item index="/Ads/list">廣告列表</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+      <el-submenu index="6">
         <template slot="title"><i class="el-icon-s-tools"></i>權限管理</template>
         <el-menu-item-group>
           <el-menu-item index="1-1">新增使用者</el-menu-item>

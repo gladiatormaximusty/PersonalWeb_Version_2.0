@@ -7,6 +7,9 @@ import ArticleEdit from '../views/ArticleEdit.vue'
 import ArticleList from '../views/ArticleList.vue'
 import PictureEdit from '../views/PictureEdit.vue'
 import PictureList from '../views/PictureList.vue'
+
+import AdsEdit from '../views/AdsEdit.vue'
+import AdsList from '../views/AdsList.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -53,6 +56,19 @@ const routes = [
       {
         path: '/pictures/list',
         component: PictureList
+      },
+      {
+        path: '/Ads/create',
+        component: AdsEdit
+      },
+      {
+        path: '/rest/Ads/edit/:id',
+        component: AdsEdit,
+        props: true
+      },
+      {
+        path: '/Ads/list',
+        component: AdsList
       }
     ]
   },
