@@ -30,7 +30,6 @@ export default {
     async fetchData() {
       const res = await this.$http.get("/rest/categories");
       this.items = res.data;
-      console.log(this.items);
     },
     async remove(row) {
       this.$confirm(`確定是否要刪除？${row.name}`, "提示", {
